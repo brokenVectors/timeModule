@@ -33,7 +33,7 @@ function module:Update(dt)
 	
 	if module.reverse then
 		module.time -= module.speed
-	else
+	elseif #module.tracking > 0 then
 		module.time += module.speed
 	end
 	

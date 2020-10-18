@@ -128,7 +128,7 @@ function module:Unreverse(obj)
 		end
 	end
 	
-	if obj and module:IsReverse(obj) then
+	if obj and module.indepTracking[obj] then
 		CheckAnchor(obj)
 		module.indepTracking[obj].reverse = false
 		return

@@ -28,6 +28,7 @@ function module:Update(dt)
 	
 	if module.time < 0 then
 		module:Unreverse()
+		script.ReverseFinished:Fire()
 	end
 	
 	if module.reverse then
@@ -74,7 +75,7 @@ function module:Unreverse()
 		end
 	end
 	module.reverse = false
-	script.ReverseFinished:Fire()
+	
 end
 
 function module:Reverse()

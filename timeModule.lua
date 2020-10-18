@@ -74,6 +74,7 @@ function module:Unreverse()
 		end
 	end
 	module.reverse = false
+	script.ReverseFinished:Fire()
 end
 
 function module:Reverse()

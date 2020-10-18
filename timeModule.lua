@@ -101,7 +101,7 @@ function module:SetSpeed(speed, obj)
 	assert(speed == math.abs(speed), "Speed must be a positive integer!")
 	assert(module:IsReverse(obj), "Sorry, this module cannot change time speed when not in reverse! I'm trying to find ways to implement this, don't worry.")
 	
-	if obj then
+	if obj and module.indepTracking[obj] then
 		module.indepTracking[obj].speed = speed
 		return
 	end
@@ -142,7 +142,7 @@ function module:Unreverse(obj)
 end
 
 function module:Reverse(obj)
-	if obj then
+	if obj and module.indepTracking[obj] then
 		module.indepTracking[obj].reverse = true
 		return
 	end

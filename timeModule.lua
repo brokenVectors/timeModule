@@ -26,8 +26,14 @@ function module:Track(obj, independent)
 	end
 end
 
+function module:ObjectIsTracked(obj)
+	if table.find(module.tracking, obj) or module.indepTracking[obj] then
+		return true
+	end
+end
+
 function module:Untrack(obj)
-	assert(table.find(module.tracking, obj) or module.indepTracking[obj], "Cannot untrack a non-tracked object!")
+	assert(module:ObjectIsTracked(obj), "Cannot untrack a non-tracked object!")
 
 	module.positions[obj] = nil
 	module.indepTracking[obj] = nil
